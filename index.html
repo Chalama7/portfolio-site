@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chalama Reddy Venna | CDN &amp; Edge Engineer</title>
+<meta name="description" content="Chalama Reddy Venna is a CDN and edge engineer in Plano, Texas, working with Akamai and Cloudflare on delivery, edge security and automation.">
+<meta name="author" content="Chalama Reddy Venna">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Chalama Reddy Venna | CDN &amp; Edge Engineer">
+<meta property="og:description" content="Reliable delivery. Secure edges. Repeatable automation. Akamai and Cloudflare onboarding, edge security and CDN automation.">
+<link rel="canonical" href="https://chalamareddy.online/">
+<meta property="og:url" content="https://chalamareddy.online/">
+<meta property="og:image" content="https://chalamareddy.online/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://chalamareddy.online/og-image.png">
+<meta name="twitter:title" content="Chalama Reddy Venna | CDN &amp; Edge Engineer">
+<meta name="twitter:description" content="Reliable delivery. Secure edges. Repeatable automation.">
+<meta property="og:image:alt" content="Chalama Reddy Venna, CDN &amp; Edge Engineer. Reliable delivery, secure edges, repeatable automation, over a diagram of a request passing TLS, WAF and cache at the edge before an origin.">
+<meta name="twitter:image:alt" content="Chalama Reddy Venna, CDN &amp; Edge Engineer, with a diagram of a request passing TLS, WAF and cache at the edge.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23c8371e'/%3E%3Ctext x='32' y='42' font-family='Helvetica,Arial,sans-serif' font-size='28' font-weight='800' fill='%23fff' text-anchor='middle'%3ECV%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* VOICE  a personal portfolio for recruiters and engineers: classic, composed, quietly confident
+   IDEA   an engineering plate of the edge: one request, three possible fates, drawn like a printed schematic
+   PICTURE a black panel tracing a request through TLS, WAF and cache to a locked-down origin, switchable between hit, miss and block
+   COLOUR warm stone ground, near-black ink, brick accent, white panels; warm charcoal at night
+   TYPE   Schibsted Grotesk 800 for name and titles, Schibsted Grotesk for text
+   LAYOUT name, role and claim across the top with key facts at right; diagram band; evidence rows; ruled career; brick contact band */
+:root{color-scheme:light dark;--bg:light-dark(#e7e4df,#171513);--ink:light-dark(#141210,#efebe5);--soft:light-dark(#4a4641,#b8b1a7);--rule:light-dark(#141210,#efebe5);--hair:light-dark(#cdc8c0,#38342f);--panel:light-dark(#fbfaf8,#211e1b);--brick:light-dark(#b3301a,#ef6a4f);--brickBg:#b8321b;--plate:#0f0e0d;--pInk:#efebe5;--pSoft:#a9a297;--ok:#4fc38a;--bad:#ef6a4f}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--brick);outline-offset:3px}
+.skip{position:absolute;left:16px;top:-60px;z-index:20;background:var(--ink);color:var(--bg);padding:10px 16px;font-weight:600;text-decoration:none}
+.skip:focus{top:12px}
+.wrap{max-width:1240px;margin:0 auto}
+.band{padding-block:clamp(48px,6vw,96px);padding-left:max(5vw,16px,env(safe-area-inset-left,0px));padding-right:max(5vw,16px,env(safe-area-inset-right,0px))}
+nav{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--hair)}
+nav{padding:0 max(5vw,16px)}
+nav .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 24px;padding:10px 0}
+.links li:last-child a{padding-right:0}
+.mark{font-weight:800;letter-spacing:-.02em;text-decoration:none;font-size:18px;display:inline-flex;align-items:center;gap:10px;min-height:44px}
+.mono{width:30px;height:30px;background:var(--brick);color:#fff;display:grid;place-items:center;font-size:13px;border-radius:6px;letter-spacing:0}
+.links{display:flex;flex-wrap:wrap;gap:0 4px;list-style:none;margin:0;padding:0}
+.links a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;text-decoration:none;font-size:15px;color:var(--soft)}
+.links a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:5px}
+#menubtn{display:none;min-height:44px;padding:0 16px;font:600 15px inherit;font-family:inherit;background:transparent;color:var(--ink);border:1.5px solid var(--rule);cursor:pointer}
+.hero{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:0 72px;align-items:start}
+.hero h1{grid-column:1/-1;padding-bottom:8px}
+.hero .facts{margin-top:34px}
+h1{margin:0;font-weight:800;line-height:.98;letter-spacing:-.035em}
+h1 .name{display:block;font-size:clamp(46px,7.2vw,92px);text-wrap:balance}
+h1 .title{display:block;font-size:clamp(20px,2.1vw,26px);letter-spacing:-.01em;font-weight:600;margin-top:16px;color:var(--soft)}
+.claim{font-size:clamp(26px,3vw,38px);line-height:1.12;letter-spacing:-.025em;font-weight:700;margin:32px 0 0;max-width:20em;text-wrap:balance}
+.claim span{display:block}
+.intro{font-size:18px;line-height:1.6;margin:18px 0 0;max-width:60ch;color:var(--soft)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 22px;border:1.5px solid var(--rule);text-decoration:none;font-weight:600;font-size:16px;transition:background .15s,color .15s,border-color .15s}
+.btn.solid{background:var(--ink);color:var(--bg)}
+.btn:hover{background:var(--brick);border-color:var(--brick);color:#fff}
+.btn svg{width:18px;height:18px;fill:currentColor}
+.facts{margin:0;border-top:2px solid var(--rule)}
+.facts div{display:grid;grid-template-columns:8.5em minmax(0,1fr);gap:12px;padding:14px 0;border-bottom:1px solid var(--hair);align-items:baseline}
+.facts dt{font-size:14px;color:var(--soft)}
+.facts dd{margin:0;font-weight:600;font-size:18px;line-height:1.35}
+.plate{background:var(--plate);color:var(--pInk);padding:clamp(36px,4.5vw,64px) max(5vw,16px)}
+.plate .wrap{display:grid;grid-template-columns:minmax(0,1fr) 330px;grid-template-areas:"fig top" "fig st";gap:0 48px;align-items:center}
+.plate figure{grid-area:fig;margin:0}
+.side{grid-area:top;align-self:end}
+.states{grid-area:st;align-self:start}
+.net{display:block;width:100%;height:auto}
+.net-m{display:none}
+.net text{fill:var(--pInk);font-family:"Schibsted Grotesk",system-ui,sans-serif;font-weight:600;font-size:19px}
+.net .sub{fill:var(--pSoft);font-weight:400;font-size:15px}
+.net-d text{font-size:22px}
+.net-d .sub{font-size:18px}
+.net-d .badge text{font-size:18px}
+.net .box{fill:#1a1815;stroke:#4d4740;stroke-width:1.5}
+.net .lane{stroke:#2e2a26;stroke-width:2;stroke-dasharray:4 6;fill:none}
+.net .stn circle{fill:#0f0e0d;stroke:#8a837a;stroke-width:2}
+.net .stn,.net .badge{transition:opacity .3s}
+.net .off{opacity:.28}
+.net .org{fill:#1a1815;stroke:var(--bad);stroke-width:2}
+.net .req,.net .res{fill:none;stroke-width:3.5;stroke-linecap:round}
+.net .req{stroke:var(--pInk)}
+.net .badge{opacity:0}
+.net .badge.show{opacity:1}
+.net .badge rect{fill:var(--pInk)}
+.net .badge text{fill:#0f0e0d;font-weight:700;font-size:15px}
+.net .badge.red rect{fill:var(--bad)}
+.net .badge.red text{fill:#0f0e0d}
+.net .tok{fill:var(--pInk);opacity:0}
+.side .tag{font-size:14px;color:var(--pSoft);margin:0 0 8px;display:flex;align-items:center;gap:8px}
+.side .tag::before{content:"";width:8px;height:8px;border-radius:50%;border:1.5px solid var(--pSoft)}
+.side h2{margin:0;font-size:clamp(26px,2.6vw,32px);line-height:1.1;letter-spacing:-.02em}
+.ctrl{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 6px}
+.ctrl button{font:600 15px "Schibsted Grotesk",system-ui,sans-serif;min-height:44px;padding:0 14px;background:transparent;color:var(--pInk);border:1.5px solid #5a544c;cursor:pointer;touch-action:manipulation}
+.ctrl button:hover{border-color:var(--pInk)}
+.ctrl button[aria-pressed=true]{background:var(--pInk);color:#0f0e0d;border-color:var(--pInk)}
+.ctrl .pp{margin-left:auto;border-color:transparent;text-decoration:underline;text-underline-offset:4px;padding:0 6px}
+.plate :focus-visible{outline-color:var(--pInk)}
+html:not(.js) .ctrl{display:none}
+.states{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:4px}
+.states li{padding:10px 0 10px 14px;border-left:3px solid #2e2a26;color:var(--pSoft);font-size:15px;line-height:1.5;transition:border-color .2s,color .2s}
+.states li b{display:block;color:var(--pInk);font-size:16px}
+.states li.on{border-left-color:var(--bad);color:#d9d3ca}
+.head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:16px 56px;align-items:end;border-bottom:2px solid var(--rule);padding-bottom:20px}
+h2.sec{font-size:clamp(34px,4.2vw,52px);line-height:1.04;letter-spacing:-.03em;margin:0;font-weight:800;text-wrap:balance}
+.head p{margin:0;color:var(--soft);max-width:62ch;font-size:17px}
+.case{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:20px 56px;padding:36px 0;border-bottom:1px solid var(--hair)}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;font-size:14px;color:var(--soft)}
+.status{font-size:13px;font-weight:600;padding:3px 10px;border:1.5px solid currentColor;line-height:1.4}
+.s-prod{color:light-dark(#1f6b45,#6fd3a0)}
+.s-int{color:light-dark(#3b4a6b,#a9b8dc)}
+.s-proto{color:var(--brick)}
+.case h3{margin:12px 0 8px;font-size:clamp(25px,2.6vw,32px);line-height:1.1;letter-spacing:-.02em}
+.case .sum{margin:0;font-size:17px;max-width:56ch}
+.flow{display:flex;flex-wrap:wrap;gap:6px 0;list-style:none;padding:0;margin:20px 0 0;font-size:14px;font-weight:600}
+.flow li{display:flex;align-items:center}
+.flow li span{background:var(--panel);border:1px solid var(--hair);padding:6px 11px}
+.flow li+li::before{content:"";width:18px;height:1.5px;background:var(--rule);display:block}
+.flow li:last-child span{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.proof{background:var(--panel);border:1px solid var(--hair);padding:20px 22px;align-self:start}
+.proof b{display:block;font-size:14px;color:var(--soft);font-weight:600;margin-bottom:6px}
+.proof p{margin:0;font-size:16px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;padding:0;list-style:none}
+.chips li{font-size:13px;border:1px solid var(--hair);padding:2px 9px;color:var(--soft)}
+details.more{grid-column:1/-1}
+details.more summary{display:inline-flex;align-items:center;gap:10px;min-height:44px;cursor:pointer;font-weight:600;list-style:none;padding:0 2px;text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1.5px}
+details.more summary::-webkit-details-marker{display:none}
+details.more summary::after{content:"";width:9px;height:9px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-3px) rotate(45deg);transition:transform .2s}
+details.more[open] summary::after{transform:translateY(2px) rotate(-135deg)}
+details.more summary:hover{color:var(--brick)}
+.cs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 48px;margin:12px 0 0;border-top:1px solid var(--hair)}
+.cs div{padding:16px 0;border-bottom:1px solid var(--hair)}
+.cs dt{font-weight:700;font-size:15px;margin-bottom:4px}
+.cs dd{margin:0;color:var(--soft);font-size:16px}
+.cs dd strong{color:var(--ink);font-weight:600}
+.minor{margin-top:56px}
+.minor h3{font-size:22px;letter-spacing:-.015em;margin:0 0 16px}
+.mgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+@media(max-width:1150px){.mgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.mini{background:var(--panel);border:1px solid var(--hair);padding:20px 22px;display:flex;flex-direction:column;gap:8px;transition:border-color .2s,transform .2s}
+.mini:hover{border-color:var(--soft);transform:translateY(-2px)}
+.mini h4{margin:0;font-size:18px;line-height:1.25;letter-spacing:-.01em}
+.mini p{margin:0;font-size:15px;color:var(--soft)}
+.mini .meta{margin-top:auto;padding-top:6px}
+.career{list-style:none;margin:0;padding:0}
+.career li{display:grid;grid-template-columns:11em minmax(0,.9fr) minmax(0,1.5fr);gap:6px 32px;padding:26px 0;border-bottom:1px solid var(--hair)}
+.career li:last-child{border-bottom:2px solid var(--rule)}
+.when{font-size:15px;color:var(--soft);font-variant-numeric:tabular-nums;white-space:nowrap;padding-top:3px}
+.career .org b{display:block;font-size:21px;letter-spacing:-.015em;line-height:1.25}
+.career .org span{display:block;color:var(--soft);font-size:15px}
+.career .org .status{display:inline-block;margin-top:8px;color:var(--soft)}
+.career p{margin:0;font-size:16px}
+.arc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:28px 0 8px}
+.arc div{padding:14px 16px 0 0;border-top:4px solid var(--hair)}
+.arc div:last-child{border-top-color:var(--brick)}
+.arc b{display:block;font-size:16px}
+.arc span{font-size:14px;color:var(--soft)}
+.skills{margin:0}
+.skills div{display:grid;grid-template-columns:13em minmax(0,1fr);gap:4px 32px;padding:16px 0;border-bottom:1px solid var(--hair)}
+.skills div:last-child{border-bottom:2px solid var(--rule)}
+.skills dt{font-weight:700}
+.skills dd{margin:0;color:var(--soft)}
+.edu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:28px}
+.edu div{background:var(--panel);border:1px solid var(--hair);padding:22px}
+.edu b{display:block;font-size:19px;letter-spacing:-.01em}
+.edu span{color:var(--soft)}
+.contact{background:var(--brickBg);color:#fff}
+.contact .wrap{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:28px 56px;align-items:end}
+.contact h2{font-size:clamp(44px,6vw,76px);line-height:1;letter-spacing:-.035em;margin:0;font-weight:800}
+.contact p{margin:16px 0 0;font-size:18px;max-width:44ch;color:#ffe6de}
+.contact .btn{border-color:#fff;color:#fff}
+.contact .btn.solid{background:#fff;color:#141210}
+.contact .btn:hover{background:#141210;border-color:#141210;color:#fff}
+.contact :focus-visible{outline-color:#fff}
+.contact dl{margin:0;border-top:1.5px solid rgba(255,255,255,.6)}
+.contact dl div{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.3)}
+.contact dt{color:#ffe6de}
+.contact dd{margin:0;font-weight:600;text-align:right}
+footer{font-size:14px;color:var(--soft)}
+footer{padding:0 max(5vw,16px)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding:22px 0}
+@media(max-width:900px){.plate .wrap{grid-template-areas:"top" "fig" "st";row-gap:20px}.hero h1{padding-bottom:0}.hero,.head,.case,.contact .wrap{grid-template-columns:minmax(0,1fr)}.plate .wrap{grid-template-columns:minmax(0,1fr)}.mgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.career li{grid-template-columns:10em minmax(0,1fr)}.career li p{grid-column:2}}
+@media(max-width:640px){.net-d{display:none}.net-m{display:block;max-width:420px;margin:0 auto}}
+@media(max-width:600px){.js #menubtn{display:inline-flex;align-items:center}.js .links{display:none;width:100%;flex-direction:column;padding:6px 0 8px}.js .links.open{display:flex}.links a{font-size:17px;color:var(--ink);padding:0 4px}.mgrid,.edu,.cs{grid-template-columns:minmax(0,1fr)}.career li{grid-template-columns:minmax(0,1fr)}.career li p{grid-column:auto}.arc{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:16px}.skills div{grid-template-columns:minmax(0,1fr)}.facts div{grid-template-columns:7em minmax(0,1fr)}.ctrl .pp{margin-left:0}.flow{gap:6px}.flow li+li::before{display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav aria-label="Primary"><div class="wrap">
+  <a class="mark" href="#top"><span class="mono" aria-hidden="true">CV</span>Chalama Reddy Venna</a>
+  <button id="menubtn" type="button" aria-expanded="false" aria-controls="navlinks">Menu</button>
+  <ul class="links" id="navlinks">
+    <li><a href="#flow">Request flow</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div></nav>
+
+<main id="main" tabindex="-1">
+<header class="band" id="top"><div class="wrap hero">
+  <h1><span class="name">Chalama Reddy Venna</span><span class="title">CDN &amp; Edge Engineer</span></h1>
+  <div>
+    <p class="claim"><span>Reliable delivery.</span> <span>Secure edges.</span> <span>Repeatable automation.</span></p>
+    <p class="intro">I put applications behind Akamai and Cloudflare and keep them fast and protected at the edge: DNS, TLS, caching, WAF rules and origin lockdown. I automate that work with Python, REST APIs and Terraform so every change is reviewable and repeatable.</p>
+    <div class="cta">
+      <a class="btn solid" href="#work">Explore my work</a>
+      <a class="btn" href="https://www.linkedin.com/in/crvenna">Connect on LinkedIn</a>
+      <a class="btn" href="https://github.com/Chalama7"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38v-1.33c-2.23.48-2.7-1.07-2.7-1.07-.36-.92-.89-1.17-.89-1.17-.73-.5.05-.49.05-.49.8.06 1.23.83 1.23.83.72 1.22 1.88.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.65-.89-3.65-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.03 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.66 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8 8 0 0 0 8 0z"/></svg>GitHub</a>
+    </div>
+  </div>
+  <dl class="facts">
+    <div><dt>Focus</dt><dd>CDN delivery and edge security</dd></div>
+    <div><dt>Platforms</dt><dd>Akamai, Cloudflare</dd></div>
+    <div><dt>Currently</dt><dd>American Airlines, contract</dd></div>
+    <div><dt>Education</dt><dd>M.S. Computer Science</dd></div>
+    <div><dt>Based in</dt><dd>Plano, Texas</dd></div>
+  </dl>
+</div></header>
+
+<section class="plate" id="flow" aria-labelledby="flowh"><div class="wrap">
+  <figure>
+    <svg class="net net-d" viewBox="30 76 940 252" role="img" aria-labelledby="flowh flowdesc">
+      <defs>
+        <pattern id="d-dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.2" fill="#efebe5" opacity=".1"/></pattern>
+        <marker id="d-aw" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10z" fill="#efebe5"/></marker>
+        <marker id="d-ag" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10z" fill="#4fc38a"/></marker>
+        <marker id="d-ar" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10z" fill="#ef6a4f"/></marker>
+      </defs>
+      <rect width="1000" height="400" fill="url(#d-dots)"/>
+      <circle cx="80" cy="178" r="13" fill="#efebe5"/><path d="M56,222 q24,-36 48,0z" fill="#efebe5"/>
+      <text x="80" y="256" text-anchor="middle">User</text>
+      <rect class="box" x="300" y="96" width="390" height="208" rx="8"/>
+      <text x="322" y="130">Edge PoP</text>
+      <path class="lane" d="M104,186 H830"/><path class="lane" d="M104,214 H830"/>
+      <g class="stn" data-s="tls"><circle cx="390" cy="200" r="30"/><text x="390" y="262" text-anchor="middle">TLS</text></g>
+      <g class="stn" data-s="waf"><circle cx="490" cy="200" r="30"/><text x="490" y="262" text-anchor="middle">WAF</text></g>
+      <g class="stn" data-s="cache"><circle cx="590" cy="200" r="30"/><text x="590" y="262" text-anchor="middle">Cache</text></g>
+      <g class="stn" data-s="origin"><rect class="org" x="830" y="140" width="110" height="120" rx="5"/><rect x="846" y="158" width="78" height="16" fill="#38342f"/><rect x="846" y="188" width="78" height="16" fill="#38342f"/><rect x="846" y="218" width="78" height="16" fill="#38342f"/><circle cx="914" cy="166" r="3" fill="#ef6a4f"/><circle cx="914" cy="196" r="3" fill="#ef6a4f"/><circle cx="914" cy="226" r="3" fill="#ef6a4f"/><text x="885" y="290" text-anchor="middle">Origin</text><text class="sub" x="885" y="314" text-anchor="middle">edge-only access</text></g>
+      <path class="req" d="M104,186 L830,186" marker-end="url(#d-aw)"/>
+      <path class="res" d="M830,214 L104,214" stroke="#4fc38a" marker-end="url(#d-ag)"/>
+      <g class="badge" data-b="waf"><rect x="452" y="130" width="76" height="30" rx="14"/><text x="490" y="152" text-anchor="middle">403</text></g>
+      <g class="badge show" data-b="cache"><rect x="552" y="130" width="76" height="30" rx="14"/><text x="590" y="152" text-anchor="middle">MISS</text></g>
+      <g class="badge show" data-b="origin"><rect x="847" y="100" width="76" height="30" rx="14"/><text x="885" y="122" text-anchor="middle">200</text></g>
+      <circle class="tok" r="8" cx="104" cy="186"/>
+    </svg>
+    <svg class="net net-m" viewBox="0 0 360 516" role="img" aria-labelledby="flowh flowdesc">
+      <defs>
+        <pattern id="m-dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="#efebe5" opacity=".1"/></pattern>
+        <marker id="m-aw" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10z" fill="#efebe5"/></marker>
+        <marker id="m-ag" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10z" fill="#4fc38a"/></marker>
+        <marker id="m-ar" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10z" fill="#ef6a4f"/></marker>
+      </defs>
+      <rect width="360" height="516" fill="url(#m-dots)"/>
+      <circle cx="180" cy="28" r="12" fill="#efebe5"/><path d="M158,66 q22,-32 44,0z" fill="#efebe5"/>
+      <text x="146" y="40" text-anchor="end">User</text>
+      <rect class="box" x="40" y="100" width="280" height="240" rx="8"/>
+      <text x="58" y="130">Edge PoP</text>
+      <path class="lane" d="M166,72 V392"/><path class="lane" d="M194,72 V392"/>
+      <g class="stn" data-s="tls"><circle cx="180" cy="160" r="25"/><text x="144" y="166" text-anchor="end">TLS</text></g>
+      <g class="stn" data-s="waf"><circle cx="180" cy="230" r="25"/><text x="144" y="236" text-anchor="end">WAF</text></g>
+      <g class="stn" data-s="cache"><circle cx="180" cy="300" r="25"/><text x="144" y="306" text-anchor="end">Cache</text></g>
+      <g class="stn" data-s="origin"><rect class="org" x="125" y="392" width="110" height="88" rx="5"/><rect x="139" y="406" width="70" height="14" fill="#38342f"/><rect x="139" y="429" width="70" height="14" fill="#38342f"/><rect x="139" y="452" width="70" height="14" fill="#38342f"/><circle cx="222" cy="413" r="3" fill="#ef6a4f"/><circle cx="222" cy="436" r="3" fill="#ef6a4f"/><circle cx="222" cy="459" r="3" fill="#ef6a4f"/><text x="112" y="442" text-anchor="end">Origin</text><text class="sub" x="180" y="506" text-anchor="middle">edge-only access</text></g>
+      <path class="req" d="M166,72 L166,392" marker-end="url(#m-aw)"/>
+      <path class="res" d="M194,392 L194,72" stroke="#4fc38a" marker-end="url(#m-ag)"/>
+      <g class="badge" data-b="waf"><rect x="222" y="216" width="68" height="28" rx="14"/><text x="256" y="235" text-anchor="middle">403</text></g>
+      <g class="badge show" data-b="cache"><rect x="222" y="286" width="68" height="28" rx="14"/><text x="256" y="305" text-anchor="middle">MISS</text></g>
+      <g class="badge show" data-b="origin"><rect x="247" y="402" width="68" height="28" rx="14"/><text x="281" y="421" text-anchor="middle">200</text></g>
+      <circle class="tok" r="7" cx="166" cy="72"/>
+    </svg>
+  </figure>
+  <div class="side">
+    <p class="tag">Illustrative request flow</p>
+    <h2 id="flowh">What happens to one request at the edge</h2>
+    <p id="flowdesc" class="sr" hidden>A user's request passes TLS, WAF and cache checks at an edge PoP. Hits are served from the edge, misses are fetched from an origin that only accepts edge traffic, and blocked requests are answered at the WAF.</p>
+    <div class="ctrl" role="group" aria-label="Choose a request outcome">
+      <button type="button" data-state="hit" aria-pressed="false">Cache hit</button>
+      <button type="button" data-state="miss" aria-pressed="true">Cache miss</button>
+      <button type="button" data-state="block" aria-pressed="false">Blocked request</button>
+      <button type="button" class="pp" id="pp">Pause</button>
+    </div>
+  </div>
+    <ol class="states" aria-live="polite">
+      <li data-s="hit"><b>Cache hit</b>TLS ends at the edge, the WAF lets the request through, and the cached copy is returned. The origin is never contacted.</li>
+      <li data-s="miss" class="on"><b>Cache miss</b>The edge forwards the request to the origin, stores the 200 response by cache rules, and returns it to the user through the edge.</li>
+      <li data-s="block"><b>Blocked request</b>A WAF rule matches. The edge answers with a 403 and the request never reaches cache or origin.</li>
+    </ol>
+</div></section>
+
+<section class="band" id="work" aria-labelledby="workh"><div class="wrap">
+  <div class="head"><h2 class="sec" id="workh">Selected work</h2><p>Three projects that show how I work: one in production, one platform built with a team, and one prototype of my own. Each case study separates my part from the team's.</p></div>
+
+  <article class="case">
+    <div>
+      <div class="meta"><span>American Airlines, contract</span><span class="status s-prod">Production work</span></div>
+      <h3>Application onboarding to Akamai</h3>
+      <p class="sum">Moving customer-facing applications behind Akamai, from the first request to a locked-down origin.</p>
+      <ol class="flow" aria-label="Onboarding stages"><li><span>Request</span></li><li><span>Property and certs</span></li><li><span>Staging test</span></li><li><span>DNS cutover</span></li><li><span>Origin lockdown</span></li></ol>
+    </div>
+    <div class="proof"><b>What I do</b><p>Take each application from request to a locked-down origin: property and certificate setup, logging, staging validation, DNS cutover and origin lockdown, documented as I go.</p>
+      <ul class="chips"><li>Akamai Property Manager</li><li>Certificates</li><li>DataStream</li><li>DNS</li><li>ServiceNow</li></ul></div>
+    <details class="more"><summary>Read the case study</summary>
+      <dl class="cs">
+        <div><dt>Problem</dt><dd>Each application needs certificates, security policy, logging and routing in place before its DNS points at the edge. Afterwards its origin must stop accepting traffic that skips the edge.</dd></div>
+        <div><dt>My contribution</dt><dd>I configure Akamai properties, certificates and origins, set up DataStream logging, validate on staging, carry out DNS CNAME cutovers and origin lockdown, and maintain the onboarding documentation and application inventory.</dd></div>
+        <div><dt>Approach</dt><dd>A fixed sequence, tracked through ServiceNow change requests, so every application goes through the same checks before and after cutover.</dd></div>
+        <div><dt>Team and status</dt><dd>Onboarding is a team process within Cybersecurity Operations. <strong>Production work, ongoing.</strong></dd></div>
+      </dl>
+    </details>
+  </article>
+
+  <article class="case">
+    <div>
+      <div class="meta"><span>JPMorgan Chase, contract</span><span class="status s-int">Internal platform, team project</span></div>
+      <h3>Multi-CDN control plane</h3>
+      <p class="sum">One API for application teams to manage CDN settings on Cloudflare and Akamai, instead of working in each provider's console.</p>
+      <ol class="flow" aria-label="Control plane flow"><li><span>Tenant intent</span></li><li><span>Control plane API</span></li><li><span>Provider adapters</span></li><li><span>Cloudflare and Akamai</span></li></ol>
+    </div>
+    <div class="proof"><b>What my integrations enabled</b><p>Provider adapters that let the platform's single API act on Cloudflare and Akamai settings, so one request could be carried out on either CDN.</p>
+      <ul class="chips"><li>Python</li><li>REST APIs</li><li>Terraform</li><li>Cloudflare API</li><li>Akamai APIs</li></ul></div>
+    <details class="more"><summary>Read the case study</summary>
+      <dl class="cs">
+        <div><dt>Problem</dt><dd>Teams needed DNS, TLS, WAF, caching and origin settings handled the same way across two CDN providers, with an audit trail and a way to correct drift.</dd></div>
+        <div><dt>Team scope</dt><dd>The platform team designed a multi-tenant, provider-agnostic control plane driven by declarative intent, with reconciliation and audit.</dd></div>
+        <div><dt>My contribution</dt><dd>I built the Cloudflare and Akamai integrations as Python REST APIs and worked with Terraform, covering DNS, TLS, WAF and caching settings.</dd></div>
+        <div><dt>Status</dt><dd><strong>Internal platform built by a team.</strong> A related traffic-steering proof of concept is listed under More engineering work.</dd></div>
+      </dl>
+    </details>
+  </article>
+
+  <article class="case">
+    <div>
+      <div class="meta"><span>Personal project</span><span class="status s-proto">Prototype</span></div>
+      <h3>Intent-driven CDN prototype</h3>
+      <p class="sum">A small engine that turns a desired CDN configuration into reviewable Cloudflare changes, with readback and rollback.</p>
+      <ol class="flow" aria-label="Prototype pipeline"><li><span>Intent</span></li><li><span>Snapshot</span></li><li><span>Diff</span></li><li><span>Apply plan</span></li><li><span>Read back</span></li></ol>
+    </div>
+    <div class="proof"><b>Demonstrated</b><p>Against a real Cloudflare zone: applied a configuration, saw a cache MISS then HIT, purged, and saw a MISS again after the purge.</p>
+      <ul class="chips"><li>Python</li><li>FastAPI</li><li>Cloudflare API</li></ul></div>
+    <details class="more"><summary>Read the case study</summary>
+      <dl class="cs">
+        <div><dt>Problem</dt><dd>Hand-edited CDN settings drift, and changes are hard to review before they go out or to roll back afterwards.</dd></div>
+        <div><dt>My contribution</dt><dd>Built on my own, separate from employer work: an intent model with normalization, snapshots, a diff engine, apply plans, DNS state and cache-rule planning, then a FastAPI service with config, purge and health endpoints.</dd></div>
+        <div><dt>Approach</dt><dd>Describe the desired state, snapshot what is live, compute the difference, apply it as a plan, then read it back. Covers hostname onboarding, TLS, origin checks and simple routing.</dd></div>
+        <div><dt>Status</dt><dd><strong>Partial working prototype, not production.</strong> Components are tested individually.</dd></div>
+      </dl>
+    </details>
+  </article>
+
+  <div class="minor">
+    <h3>More engineering work</h3>
+    <div class="mgrid">
+      <article class="mini"><h4>Multi-CDN traffic steering</h4><p>A proof of concept related to the multi-CDN control plane: Akamai Global Traffic Management with Cloudflare and Akamai as targets, using weighted and failover routing. Demonstrated adjusting how traffic is split between the two CDNs. I worked on it as part of the team.</p><div class="meta"><span class="status s-proto">Proof of concept</span></div></article>
+      <article class="mini"><h4>Edge Configuration Console</h4><p>A macOS desktop app that drafts, checks and exports onboarding configurations from a standard template, with duplicate checks and a separate activation step. Live API integration is in progress.</p><div class="meta"><span class="status s-proto">Internal tool, prototype</span></div></article>
+      <article class="mini"><h4>CDN property audit</h4><p>A read-only inventory that flags missing or duplicate request-control rules and missing log streaming across Akamai properties.</p><div class="meta"><span class="status s-int">Internal tooling</span></div></article>
+      <article class="mini"><h4>Kubernetes controller sandbox</h4><p>A Go controller-runtime project with a custom resource and reconciliation loop, run on local KIND clusters with Helm. Built while exploring designs for a CDN control plane.</p><div class="meta"><span class="status s-proto">Prototype</span></div></article>
+    </div>
+  </div>
+</div></section>
+
+<section class="band" id="experience" aria-labelledby="exph" style="padding-top:0"><div class="wrap">
+  <div class="head"><h2 class="sec" id="exph">Experience</h2><p>Each role moved me closer to the edge: network foundations, then cloud networking, then CDN platforms and edge operations.</p></div>
+  <div class="arc" aria-hidden="true">
+    <div><b>Networking</b><span>Capgemini</span></div>
+    <div><b>Cloud networking</b><span>Verizon</span></div>
+    <div><b>CDN platforms</b><span>JPMorgan Chase</span></div>
+    <div><b>Edge operations</b><span>American Airlines</span></div>
+  </div>
+  <ol class="career">
+    <li><span class="when">Sep 2026 – present</span><div class="org"><b>American Airlines</b><span>DCDN Network Engineer II, Cybersecurity Operations</span><span class="status">Contract</span></div><p>Onboard and migrate applications onto Akamai, from property and certificate setup to DNS cutover and origin lockdown. Build internal tools for configuration and audits.</p></li>
+    <li><span class="when">Jun 2025 – Aug 2026</span><div class="org"><b>JPMorgan Chase</b><span>CDN Control Plane Engineer</span><span class="status">Contract</span></div><p>Built Cloudflare and Akamai integrations for a multi-CDN control plane with Python REST APIs and Terraform, covering DNS, TLS, WAF and caching.</p></li>
+    <li><span class="when">Jul 2024 – Jun 2025</span><div class="org"><b>Verizon</b><span>Network Engineer, Irving TX</span></div><p>AWS VPC networking, CDN and DNS routing, WAF and bot mitigation, Python automation with CloudWatch monitoring, and CI/CD pipelines.</p></li>
+    <li><span class="when">Sep 2020 – Aug 2022</span><div class="org"><b>Capgemini</b><span>Network Support Engineer, Hyderabad</span></div><p>Routing and switching with VLANs, OSPF, NAT and firewalls; DNS and DHCP operations; scripted routine checks in Python and shell.</p></li>
+  </ol>
+</div></section>
+
+<section class="band" id="skills" aria-labelledby="skillh" style="padding-top:0"><div class="wrap">
+  <div class="head"><h2 class="sec" id="skillh">Skills and education</h2><p>The tools I reach for, grouped by layer.</p></div>
+  <dl class="skills">
+    <div><dt>CDN and edge</dt><dd>Akamai Property Manager, GTM, DataStream and certificates; Cloudflare; caching and purge strategy; origin lockdown; multi-CDN steering</dd></div>
+    <div><dt>Edge security</dt><dd>WAF, bot mitigation, DDoS protection, TLS and certificate lifecycle, request-control rules</dd></div>
+    <div><dt>Networking</dt><dd>DNS, HTTP routing, load balancing, AWS VPC, routing and switching, OSPF, VLANs, NAT, firewalls</dd></div>
+    <div><dt>Automation</dt><dd>Python, REST APIs, Terraform, shell scripting, CI/CD, GitOps</dd></div>
+    <div><dt>Platform</dt><dd>Kubernetes, Helm, Go controllers, FastAPI, AWS CloudWatch</dd></div>
+    <div><dt>Change practice</dt><dd>ServiceNow change management, staging validation, cutover runbooks, onboarding documentation</dd></div>
+  </dl>
+  <div class="edu">
+    <div><b>M.S., Computer Science</b><span>Western Illinois University, Macomb, Illinois. May 2024</span></div>
+    <div><b>B.Tech, Computer Science</b><span>Vignan University, India</span></div>
+  </div>
+</div></section>
+
+<section class="band contact" id="contact" aria-labelledby="conh"><div class="wrap">
+  <div>
+    <h2 id="conh">Let’s connect.</h2>
+    <p>I’m glad to hear from recruiters, hiring managers and engineers working on CDN, edge security or network reliability.</p>
+    <div class="cta"><a class="btn solid" href="https://www.linkedin.com/in/crvenna">Connect on LinkedIn</a><a class="btn" href="https://github.com/Chalama7">GitHub</a></div>
+  </div>
+  <dl>
+    <div><dt>Location</dt><dd>Plano, Texas</dd></div>
+    <div><dt>Time zone</dt><dd>US Central</dd></div>
+    <div><dt>LinkedIn</dt><dd>in/crvenna</dd></div>
+    <div><dt>GitHub</dt><dd>Chalama7</dd></div>
+  </dl>
+</div></section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 Chalama Reddy Venna</span><span>The request-flow diagram is illustrative, not live monitoring.</span></div></footer>
+
+<script>
+{
+const mb=document.getElementById('menubtn'),nl=document.getElementById('navlinks');
+const closeMenu=()=>{mb.setAttribute('aria-expanded','false');nl.classList.remove('open')};
+mb.addEventListener('click',()=>{const o=mb.getAttribute('aria-expanded')==='true';mb.setAttribute('aria-expanded',String(!o));nl.classList.toggle('open',!o)});
+nl.addEventListener('click',e=>{if(e.target.closest('a'))closeMenu()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&nl.classList.contains('open')){closeMenu();mb.focus()}});
+
+const CFG={d:{ax:'x',lane:[186,214],p:{user:104,tls:390,waf:490,cache:590,origin:830}},m:{ax:'y',lane:[166,194],p:{user:72,tls:160,waf:230,cache:300,origin:392}}};
+const ST={hit:{stop:'cache',red:false,b:{cache:'HIT'}},miss:{stop:'origin',red:false,b:{cache:'MISS',origin:'200'}},block:{stop:'waf',red:true,b:{waf:'403'}}};
+const ORDER=['tls','waf','cache','origin'];
+const svgs=[...document.querySelectorAll('.net')].map(el=>({el,k:el.classList.contains('net-d')?'d':'m'}));
+const mq=matchMedia('(prefers-reduced-motion: reduce)');
+let state='miss',playing=!mq.matches,ms=0,last=null,raf=0;
+const pt=(c,lane,v)=>c.ax==='x'?[v,lane]:[lane,v];
+const T={a:1900,h:700,b:1900,r:900};
+const TOT=T.a+T.h+T.b+T.r;
+const ease=x=>x<.5?2*x*x:1-((-2*x+2)**2)/2;
+const setRoute=()=>{
+  const s=ST[state];
+  svgs.forEach(({el,k})=>{
+    const c=CFG[k],stop=c.p[s.stop],u=c.p.user;
+    const a=pt(c,c.lane[0],u),b=pt(c,c.lane[0],stop),r1=pt(c,c.lane[1],stop),r2=pt(c,c.lane[1],u);
+    el.querySelector('.req').setAttribute('d',`M${a} L${b}`);
+    const res=el.querySelector('.res');
+    res.setAttribute('d',`M${r1} L${r2}`);
+    res.setAttribute('stroke',s.red?'#ef6a4f':'#4fc38a');
+    res.setAttribute('marker-end',`url(#${k}-a${s.red?'r':'g'})`);
+    const si=ORDER.indexOf(s.stop);
+    el.querySelectorAll('.stn').forEach(g=>g.classList.toggle('off',ORDER.indexOf(g.dataset.s)>si));
+    el.querySelectorAll('.badge').forEach(g=>{const t=s.b[g.dataset.b];g.style.display=t?'':'none';if(t){g.querySelector('text').textContent=t;g.classList.toggle('red',s.red)}});
+  });
+  document.querySelectorAll('.ctrl [data-state]').forEach(btn=>btn.setAttribute('aria-pressed',String(btn.dataset.state===state)));
+  document.querySelectorAll('.states li').forEach(li=>{const on=li.dataset.s===state;li.classList.toggle('on',on);if(on)li.setAttribute('aria-current','true');else li.removeAttribute('aria-current')});
+};
+const frame=t=>{
+  const s=ST[state];
+  svgs.forEach(({el,k})=>{
+    const c=CFG[k],u=c.p.user,stop=c.p[s.stop],tok=el.querySelector('.tok');
+    let v=null,lane=c.lane[0],col='#efebe5',reveal=Infinity;
+    if(t<T.a){v=u+(stop-u)*ease(t/T.a);reveal=v}
+    else if(t<T.a+T.h){v=stop}
+    else if(t<T.a+T.h+T.b){v=stop+(u-stop)*ease((t-T.a-T.h)/T.b);lane=c.lane[1];col=s.red?'#ef6a4f':'#4fc38a'}
+    if(v===null){tok.style.opacity=0}
+    else{const [x,y]=pt(c,lane,v);tok.setAttribute('cx',x);tok.setAttribute('cy',y);tok.style.fill=col;tok.style.opacity=1}
+    el.querySelectorAll('.badge').forEach(g=>g.classList.toggle('show',c.p[g.dataset.b]<=reveal+1));
+  });
+};
+const still=()=>{svgs.forEach(({el})=>{el.querySelector('.tok').style.opacity=0;el.querySelectorAll('.badge').forEach(g=>g.classList.add('show'))})};
+const tick=ts=>{if(last!==null)ms+=ts-last;last=ts;frame(ms%TOT);if(playing)raf=requestAnimationFrame(tick)};
+const pp=document.getElementById('pp');
+const setPlay=p=>{playing=p;pp.textContent=p?'Pause':'Play';pp.setAttribute('aria-label',p?'Pause animation':'Play animation');cancelAnimationFrame(raf);last=null;if(p)raf=requestAnimationFrame(tick);else still()};
+document.querySelectorAll('.ctrl [data-state]').forEach(btn=>btn.addEventListener('click',()=>{state=btn.dataset.state;ms=0;setRoute();if(!playing)still()}));
+pp.addEventListener('click',()=>setPlay(!playing));
+mq.addEventListener?.('change',e=>{if(e.matches)setPlay(false)});
+setRoute();setPlay(playing);
+}
+</script>
+</body>
+</html>
