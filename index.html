@@ -80,26 +80,27 @@ h1 .title{display:block;font-size:clamp(20px,2.1vw,26px);letter-spacing:-.01em;f
 .states{grid-area:st;align-self:start}
 .net{display:block;width:100%;height:auto}
 .net-m{display:none}
-.net text{fill:var(--pInk);font-family:"Schibsted Grotesk",system-ui,sans-serif;font-weight:600;font-size:19px}
-.net .sub{fill:var(--pSoft);font-weight:400;font-size:15px}
-.net-d text{font-size:22px}
-.net-d .sub{font-size:18px}
-.net-d .badge text{font-size:18px}
-.net .box{fill:#1a1815;stroke:#4d4740;stroke-width:1.5}
-.net .lane{stroke:#2e2a26;stroke-width:2;stroke-dasharray:4 6;fill:none}
-.net .stn circle{fill:#0f0e0d;stroke:#8a837a;stroke-width:2}
-.net .stn,.net .badge{transition:opacity .3s}
-.net .off{opacity:.28}
-.net .org{fill:#1a1815;stroke:var(--bad);stroke-width:2}
-.net .req,.net .res{fill:none;stroke-width:3.5;stroke-linecap:round}
-.net .req{stroke:var(--pInk)}
-.net .badge{opacity:0}
-.net .badge.show{opacity:1}
-.net .badge rect{fill:var(--pInk)}
-.net .badge text{fill:#0f0e0d;font-weight:700;font-size:15px}
-.net .badge.red rect{fill:var(--bad)}
-.net .badge.red text{fill:#0f0e0d}
-.net .tok{fill:var(--pInk);opacity:0}
+.net text{fill:var(--pInk);font-family:"Schibsted Grotesk",system-ui,sans-serif;font-weight:700;font-size:17px;paint-order:stroke;stroke:#0f0e0d;stroke-width:4px;stroke-linejoin:round}
+.net .lbl{fill:var(--pSoft);font-weight:400;font-size:15px}
+.net-d text{font-size:19px}
+.net-d .lbl{font-size:17px}
+.net-m text{font-size:15px}
+.net-m .lbl{font-size:14px}
+.net .up{fill:none;stroke:#3d3833;stroke-width:1.6}
+.net .po{fill:none;stroke:#3d3833;stroke-width:1.6;stroke-dasharray:3 6}
+.net .user{fill:var(--pInk)}
+.net .pop .box{fill:#211e1b;stroke:var(--pInk);stroke-width:1.5;transition:stroke .25s}
+.net .pop .bar{fill:var(--ok)}
+.net .pop.flash .box{stroke:var(--bad);stroke-width:2.5}
+.net .pop.flash .bar{fill:var(--bad)}
+.net .org .o{fill:#211e1b;stroke:var(--bad);stroke-width:2}
+.net .org .slat{fill:#3a3632}
+.net .org .led{fill:var(--bad)}
+.net .glow{opacity:.6;transition:opacity .3s}
+.net .org.busy .glow{opacity:1}
+.lead{margin:12px 0 0;color:#c9c2b8;font-size:16px;max-width:34em}
+.states li b::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--c);margin-right:8px;vertical-align:1px}
+.states.focus li:not(.on){opacity:.5}
 .side .tag{font-size:14px;color:var(--pSoft);margin:0 0 8px;display:flex;align-items:center;gap:8px}
 .side .tag::before{content:"";width:8px;height:8px;border-radius:50%;border:1.5px solid var(--pSoft)}
 .side h2{margin:0;font-size:clamp(26px,2.6vw,32px);line-height:1.1;letter-spacing:-.02em}
@@ -113,7 +114,7 @@ html:not(.js) .ctrl{display:none}
 .states{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:4px}
 .states li{padding:10px 0 10px 14px;border-left:3px solid #2e2a26;color:var(--pSoft);font-size:15px;line-height:1.5;transition:border-color .2s,color .2s}
 .states li b{display:block;color:var(--pInk);font-size:16px}
-.states li.on{border-left-color:var(--bad);color:#d9d3ca}
+.states li.on{border-left-color:var(--c);color:#d9d3ca}
 .head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:16px 56px;align-items:end;border-bottom:2px solid var(--rule);padding-bottom:20px}
 h2.sec{font-size:clamp(34px,4.2vw,52px);line-height:1.04;letter-spacing:-.03em;margin:0;font-weight:800;text-wrap:balance}
 .head p{margin:0;color:var(--soft);max-width:62ch;font-size:17px}
@@ -198,7 +199,7 @@ footer{font-size:14px;color:var(--soft)}
 footer{padding:0 max(5vw,16px)}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding:22px 0}
 @media(max-width:900px){.plate .wrap{grid-template-areas:"top" "fig" "st";row-gap:20px}.hero h1{padding-bottom:0}.hero,.head,.case,.contact .wrap{grid-template-columns:minmax(0,1fr)}.plate .wrap{grid-template-columns:minmax(0,1fr)}.mgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.career li{grid-template-columns:10em minmax(0,1fr)}.career li p,.career .duties{grid-column:2}}
-@media(max-width:640px){.net-d{display:none}.net-m{display:block;max-width:420px;margin:0 auto}}
+@media(max-width:800px){.net-d{display:none}.net-m{display:block;max-width:460px;margin:0 auto}}
 @media(max-width:900px){.certs{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:600px){.js #menubtn{display:inline-flex;align-items:center}.js .links{display:none;width:100%;flex-direction:column;padding:6px 0 8px}.js .links.open{display:flex}.links a{font-size:17px;color:var(--ink);padding:0 4px}.mgrid,.edu,.cs{grid-template-columns:minmax(0,1fr)}.career li{grid-template-columns:minmax(0,1fr)}.career li p,.career .duties{grid-column:auto}.arc{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:16px}.skills div{grid-template-columns:minmax(0,1fr)}.facts div{grid-template-columns:7em minmax(0,1fr)}.ctrl .pp{margin-left:0}.flow{gap:6px}.flow li+li::before{display:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
@@ -241,70 +242,78 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
 
 <section class="plate" id="flow" aria-labelledby="flowh"><div class="wrap">
   <figure>
-    <svg class="net net-d" viewBox="30 76 940 252" role="img" aria-labelledby="flowh flowdesc">
-      <defs>
-        <pattern id="d-dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.2" fill="#efebe5" opacity=".1"/></pattern>
-        <marker id="d-aw" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10z" fill="#efebe5"/></marker>
-        <marker id="d-ag" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10z" fill="#4fc38a"/></marker>
-        <marker id="d-ar" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10z" fill="#ef6a4f"/></marker>
-      </defs>
-      <rect width="1000" height="400" fill="url(#d-dots)"/>
-      <circle cx="80" cy="178" r="13" fill="#efebe5"/><path d="M56,222 q24,-36 48,0z" fill="#efebe5"/>
-      <text x="80" y="256" text-anchor="middle">User</text>
-      <rect class="box" x="300" y="96" width="390" height="208" rx="8"/>
-      <text x="322" y="130">Edge PoP</text>
-      <path class="lane" d="M104,186 H830"/><path class="lane" d="M104,214 H830"/>
-      <g class="stn" data-s="tls"><circle cx="390" cy="200" r="30"/><text x="390" y="262" text-anchor="middle">TLS</text></g>
-      <g class="stn" data-s="waf"><circle cx="490" cy="200" r="30"/><text x="490" y="262" text-anchor="middle">WAF</text></g>
-      <g class="stn" data-s="cache"><circle cx="590" cy="200" r="30"/><text x="590" y="262" text-anchor="middle">Cache</text></g>
-      <g class="stn" data-s="origin"><rect class="org" x="830" y="140" width="110" height="120" rx="5"/><rect x="846" y="158" width="78" height="16" fill="#38342f"/><rect x="846" y="188" width="78" height="16" fill="#38342f"/><rect x="846" y="218" width="78" height="16" fill="#38342f"/><circle cx="914" cy="166" r="3" fill="#ef6a4f"/><circle cx="914" cy="196" r="3" fill="#ef6a4f"/><circle cx="914" cy="226" r="3" fill="#ef6a4f"/><text x="885" y="290" text-anchor="middle">Origin</text><text class="sub" x="885" y="314" text-anchor="middle">edge-only access</text></g>
-      <path class="req" d="M104,186 L830,186" marker-end="url(#d-aw)"/>
-      <path class="res" d="M830,214 L104,214" stroke="#4fc38a" marker-end="url(#d-ag)"/>
-      <g class="badge" data-b="waf"><rect x="452" y="130" width="76" height="30" rx="14"/><text x="490" y="152" text-anchor="middle">403</text></g>
-      <g class="badge show" data-b="cache"><rect x="552" y="130" width="76" height="30" rx="14"/><text x="590" y="152" text-anchor="middle">MISS</text></g>
-      <g class="badge show" data-b="origin"><rect x="847" y="100" width="76" height="30" rx="14"/><text x="885" y="122" text-anchor="middle">200</text></g>
-      <circle class="tok" r="8" cx="104" cy="186"/>
-    </svg>
-    <svg class="net net-m" viewBox="0 0 360 516" role="img" aria-labelledby="flowh flowdesc">
-      <defs>
-        <pattern id="m-dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="#efebe5" opacity=".1"/></pattern>
-        <marker id="m-aw" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10z" fill="#efebe5"/></marker>
-        <marker id="m-ag" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10z" fill="#4fc38a"/></marker>
-        <marker id="m-ar" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10z" fill="#ef6a4f"/></marker>
-      </defs>
-      <rect width="360" height="516" fill="url(#m-dots)"/>
-      <circle cx="180" cy="28" r="12" fill="#efebe5"/><path d="M158,66 q22,-32 44,0z" fill="#efebe5"/>
-      <text x="146" y="40" text-anchor="end">User</text>
-      <rect class="box" x="40" y="100" width="280" height="240" rx="8"/>
-      <text x="58" y="130">Edge PoP</text>
-      <path class="lane" d="M166,72 V392"/><path class="lane" d="M194,72 V392"/>
-      <g class="stn" data-s="tls"><circle cx="180" cy="160" r="25"/><text x="144" y="166" text-anchor="end">TLS</text></g>
-      <g class="stn" data-s="waf"><circle cx="180" cy="230" r="25"/><text x="144" y="236" text-anchor="end">WAF</text></g>
-      <g class="stn" data-s="cache"><circle cx="180" cy="300" r="25"/><text x="144" y="306" text-anchor="end">Cache</text></g>
-      <g class="stn" data-s="origin"><rect class="org" x="125" y="392" width="110" height="88" rx="5"/><rect x="139" y="406" width="70" height="14" fill="#38342f"/><rect x="139" y="429" width="70" height="14" fill="#38342f"/><rect x="139" y="452" width="70" height="14" fill="#38342f"/><circle cx="222" cy="413" r="3" fill="#ef6a4f"/><circle cx="222" cy="436" r="3" fill="#ef6a4f"/><circle cx="222" cy="459" r="3" fill="#ef6a4f"/><text x="112" y="442" text-anchor="end">Origin</text><text class="sub" x="180" y="506" text-anchor="middle">edge-only access</text></g>
-      <path class="req" d="M166,72 L166,392" marker-end="url(#m-aw)"/>
-      <path class="res" d="M194,392 L194,72" stroke="#4fc38a" marker-end="url(#m-ag)"/>
-      <g class="badge" data-b="waf"><rect x="222" y="216" width="68" height="28" rx="14"/><text x="256" y="235" text-anchor="middle">403</text></g>
-      <g class="badge show" data-b="cache"><rect x="222" y="286" width="68" height="28" rx="14"/><text x="256" y="305" text-anchor="middle">MISS</text></g>
-      <g class="badge show" data-b="origin"><rect x="247" y="402" width="68" height="28" rx="14"/><text x="281" y="421" text-anchor="middle">200</text></g>
-      <circle class="tok" r="7" cx="166" cy="72"/>
-    </svg>
+      <svg class="net net-d" viewBox="0 0 1000 560" role="img" aria-labelledby="flowh flowdesc">
+      <defs><radialGradient id="d-glow"><stop offset="0" stop-color="#ef6a4f" stop-opacity=".45"/><stop offset="1" stop-color="#ef6a4f" stop-opacity="0"/></radialGradient></defs>
+      <text class="lbl" x="80" y="40" text-anchor="middle">Users</text>
+      <text class="lbl" x="500" y="40" text-anchor="middle">Edge: TLS, WAF, cache</text>
+      <text class="lbl" x="905" y="40" text-anchor="middle">Origin</text>
+      <path class="up" data-u="0" data-p="0" d="M98,96 C300,96 300,110 482.0,110"/>
+      <path class="up" data-u="1" data-p="1" d="M98,166 C300,166 300,206 482.0,206"/>
+      <path class="up" data-u="2" data-p="2" d="M98,236 C300,236 300,302 482.0,302"/>
+      <path class="up" data-u="3" data-p="3" d="M98,306 C300,306 300,398 482.0,398"/>
+      <path class="up" data-u="4" data-p="4" d="M98,376 C300,376 300,494 482.0,494"/>
+      <path class="up" data-u="5" data-p="0" d="M98,446 C300,446 300,110 482.0,110"/>
+      <path class="up" data-u="6" data-p="1" d="M98,516 C300,516 300,206 482.0,206"/>
+      <path class="po" data-p="0" d="M518.0,110 C700,110 720,302 873.0,302"/>
+      <path class="po" data-p="1" d="M518.0,206 C700,206 720,302 873.0,302"/>
+      <path class="po" data-p="2" d="M518.0,302 C700,302 720,302 873.0,302"/>
+      <path class="po" data-p="3" d="M518.0,398 C700,398 720,302 873.0,302"/>
+      <path class="po" data-p="4" d="M518.0,494 C700,494 720,302 873.0,302"/>
+      <g class="user"><circle cx="80" cy="89" r="7"/><path d="M68,106 q12,-15 24,0z"/></g>
+      <g class="user"><circle cx="80" cy="159" r="7"/><path d="M68,176 q12,-15 24,0z"/></g>
+      <g class="user"><circle cx="80" cy="229" r="7"/><path d="M68,246 q12,-15 24,0z"/></g>
+      <g class="user"><circle cx="80" cy="299" r="7"/><path d="M68,316 q12,-15 24,0z"/></g>
+      <g class="user"><circle cx="80" cy="369" r="7"/><path d="M68,386 q12,-15 24,0z"/></g>
+      <g class="user"><circle cx="80" cy="439" r="7"/><path d="M68,456 q12,-15 24,0z"/></g>
+      <g class="user"><circle cx="80" cy="509" r="7"/><path d="M68,526 q12,-15 24,0z"/></g>
+      <g class="pop" data-p="0"><rect class="box" x="482.0" y="92.0" width="36" height="36" rx="4"/><rect class="bar" x="490.1" y="107.5" width="19.8" height="5"/><text x="526.0" y="100" text-anchor="start">DFW</text></g>
+      <g class="pop" data-p="1"><rect class="box" x="482.0" y="188.0" width="36" height="36" rx="4"/><rect class="bar" x="490.1" y="203.5" width="19.8" height="5"/><text x="526.0" y="196" text-anchor="start">ORD</text></g>
+      <g class="pop" data-p="2"><rect class="box" x="482.0" y="284.0" width="36" height="36" rx="4"/><rect class="bar" x="490.1" y="299.5" width="19.8" height="5"/><text x="526.0" y="292" text-anchor="start">IAD</text></g>
+      <g class="pop" data-p="3"><rect class="box" x="482.0" y="380.0" width="36" height="36" rx="4"/><rect class="bar" x="490.1" y="395.5" width="19.8" height="5"/><text x="526.0" y="388" text-anchor="start">LHR</text></g>
+      <g class="pop" data-p="4"><rect class="box" x="482.0" y="476.0" width="36" height="36" rx="4"/><rect class="bar" x="490.1" y="491.5" width="19.8" height="5"/><text x="526.0" y="484" text-anchor="start">NRT</text></g>
+      <g class="org"><circle class="glow" cx="905" cy="302" r="70.4" fill="url(#d-glow)"/><rect class="o" x="873.0" y="261.0" width="64" height="82" rx="5"/><rect class="slat" x="881.0" y="273.0" width="48" height="14.7"/><circle class="led" cx="923.0" cy="280.3" r="2.5"/><rect class="slat" x="881.0" y="293.7" width="48" height="14.7"/><circle class="led" cx="923.0" cy="301.0" r="2.5"/><rect class="slat" x="881.0" y="314.3" width="48" height="14.7"/><circle class="led" cx="923.0" cy="321.7" r="2.5"/><text class="lbl" x="905" y="369.0" text-anchor="middle">Locked down</text></g>
+      <g class="pks"></g></svg>
+      <svg class="net net-m" viewBox="0 0 360 460" role="img" aria-labelledby="flowh flowdesc">
+      <defs><radialGradient id="m-glow"><stop offset="0" stop-color="#ef6a4f" stop-opacity=".45"/><stop offset="1" stop-color="#ef6a4f" stop-opacity="0"/></radialGradient></defs>
+      <text class="lbl" x="30" y="34" text-anchor="middle">Users</text>
+      <text class="lbl" x="180" y="34" text-anchor="middle">Edge</text>
+      <text class="lbl" x="320" y="34" text-anchor="middle">Origin</text>
+      <path class="up" data-u="0" data-p="0" d="M48,92 C110,92 110,122 165.0,122"/>
+      <path class="up" data-u="1" data-p="1" d="M48,168 C110,168 110,244 165.0,244"/>
+      <path class="up" data-u="2" data-p="2" d="M48,244 C110,244 110,366 165.0,366"/>
+      <path class="up" data-u="3" data-p="0" d="M48,320 C110,320 110,122 165.0,122"/>
+      <path class="up" data-u="4" data-p="1" d="M48,396 C110,396 110,244 165.0,244"/>
+      <path class="po" data-p="0" d="M195.0,122 C250,122 255,244 300.0,244"/>
+      <path class="po" data-p="1" d="M195.0,244 C250,244 255,244 300.0,244"/>
+      <path class="po" data-p="2" d="M195.0,366 C250,366 255,244 300.0,244"/>
+      <g class="user"><circle cx="30" cy="86" r="6"/><path d="M20,101 q10,-13 20,0z"/></g>
+      <g class="user"><circle cx="30" cy="162" r="6"/><path d="M20,177 q10,-13 20,0z"/></g>
+      <g class="user"><circle cx="30" cy="238" r="6"/><path d="M20,253 q10,-13 20,0z"/></g>
+      <g class="user"><circle cx="30" cy="314" r="6"/><path d="M20,329 q10,-13 20,0z"/></g>
+      <g class="user"><circle cx="30" cy="390" r="6"/><path d="M20,405 q10,-13 20,0z"/></g>
+      <g class="pop" data-p="0"><rect class="box" x="165.0" y="107.0" width="30" height="30" rx="4"/><rect class="bar" x="171.8" y="119.5" width="16.5" height="5"/><text x="180" y="99.0" text-anchor="middle">DFW</text></g>
+      <g class="pop" data-p="1"><rect class="box" x="165.0" y="229.0" width="30" height="30" rx="4"/><rect class="bar" x="171.8" y="241.5" width="16.5" height="5"/><text x="180" y="221.0" text-anchor="middle">ORD</text></g>
+      <g class="pop" data-p="2"><rect class="box" x="165.0" y="351.0" width="30" height="30" rx="4"/><rect class="bar" x="171.8" y="363.5" width="16.5" height="5"/><text x="180" y="343.0" text-anchor="middle">IAD</text></g>
+      <g class="org"><circle class="glow" cx="320" cy="244" r="44.0" fill="url(#m-glow)"/><rect class="o" x="300.0" y="216.0" width="40" height="56" rx="5"/><rect class="slat" x="308.0" y="228.0" width="24" height="6.0"/><circle class="led" cx="326.0" cy="231.0" r="2.5"/><rect class="slat" x="308.0" y="240.0" width="24" height="6.0"/><circle class="led" cx="326.0" cy="243.0" r="2.5"/><rect class="slat" x="308.0" y="252.0" width="24" height="6.0"/><circle class="led" cx="326.0" cy="255.0" r="2.5"/><text class="lbl" x="320" y="298.0" text-anchor="middle">Locked</text></g>
+      <g class="pks"></g></svg>
   </figure>
   <div class="side">
     <p class="tag">Illustrative request flow</p>
-    <h2 id="flowh">What happens to one request at the edge</h2>
-    <p id="flowdesc" class="sr" hidden>A user's request passes TLS, WAF and cache checks at an edge PoP. Hits are served from the edge, misses are fetched from an origin that only accepts edge traffic, and blocked requests are answered at the WAF.</p>
-    <div class="ctrl" role="group" aria-label="Choose a request outcome">
+    <h2 id="flowh">Where my work lives</h2>
+    <p class="lead">Between your users and your servers. Every request meets TLS, WAF and cache rules at the edge before the origin ever sees it.</p>
+    <p id="flowdesc" hidden>Users send requests to edge PoPs in Dallas, Chicago, Ashburn, London and Tokyo. Cache hits are answered at the edge, misses are fetched from an origin that only accepts edge traffic, and blocked requests are answered at the WAF.</p>
+    <div class="ctrl" role="group" aria-label="Choose what the diagram shows">
+      <button type="button" data-state="mix" aria-pressed="true">Mixed traffic</button>
       <button type="button" data-state="hit" aria-pressed="false">Cache hit</button>
-      <button type="button" data-state="miss" aria-pressed="true">Cache miss</button>
-      <button type="button" data-state="block" aria-pressed="false">Blocked request</button>
+      <button type="button" data-state="miss" aria-pressed="false">Cache miss</button>
+      <button type="button" data-state="block" aria-pressed="false">Blocked</button>
       <button type="button" class="pp" id="pp">Pause</button>
     </div>
   </div>
     <ol class="states" aria-live="polite">
-      <li data-s="hit"><b>Cache hit</b>TLS ends at the edge, the WAF lets the request through, and the cached copy is returned. The origin is never contacted.</li>
-      <li data-s="miss" class="on"><b>Cache miss</b>The edge forwards the request to the origin, stores the 200 response by cache rules, and returns it to the user through the edge.</li>
-      <li data-s="block"><b>Blocked request</b>A WAF rule matches. The edge answers with a 403 and the request never reaches cache or origin.</li>
+      <li data-s="hit" style="--c:#4fc38a"><b>Cache hit</b>The edge already has a fresh copy and answers directly. The origin is never contacted.</li>
+      <li data-s="miss" style="--c:#e9a23b"><b>Cache miss</b>The edge fetches from an origin that only accepts edge traffic, caches the 200 by its rules, and returns it.</li>
+      <li data-s="block" style="--c:#ef6a4f"><b>Blocked request</b>A WAF rule matches. The edge answers with a 403 and nothing reaches cache or origin.</li>
     </ol>
 </div></section>
 
@@ -441,54 +450,60 @@ mb.addEventListener('click',()=>{const o=mb.getAttribute('aria-expanded')==='tru
 nl.addEventListener('click',e=>{if(e.target.closest('a'))closeMenu()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&nl.classList.contains('open')){closeMenu();mb.focus()}});
 
-const CFG={d:{ax:'x',lane:[186,214],p:{user:104,tls:390,waf:490,cache:590,origin:830}},m:{ax:'y',lane:[166,194],p:{user:72,tls:160,waf:230,cache:300,origin:392}}};
-const ST={hit:{stop:'cache',red:false,b:{cache:'HIT'}},miss:{stop:'origin',red:false,b:{cache:'MISS',origin:'200'}},block:{stop:'waf',red:true,b:{waf:'403'}}};
-const ORDER=['tls','waf','cache','origin'];
-const svgs=[...document.querySelectorAll('.net')].map(el=>({el,k:el.classList.contains('net-d')?'d':'m'}));
+const NS='http://www.w3.org/2000/svg';
+const COL={req:'#efebe5',ok:'#4fc38a',fetch:'#e9a23b',bad:'#ef6a4f'};
+const MIX={d:['hit','miss','hit','block','hit','miss','hit'],m:['hit','miss','block','hit','miss']};
+const svgs=[...document.querySelectorAll('.net')].map(el=>{
+  const k=el.classList.contains('net-d')?'d':'m';
+  const ups=[...el.querySelectorAll('.up')].map(p=>({p,L:p.getTotalLength(),pop:+p.dataset.p,u:+p.dataset.u}));
+  const pos=[...el.querySelectorAll('.po')].map(p=>({p,L:p.getTotalLength()}));
+  const popEls=[...el.querySelectorAll('.pop')];const org=el.querySelector('.org');const g=el.querySelector('.pks');
+  const pk=ups.map(()=>{const c=document.createElementNS(NS,'circle');c.setAttribute('r',k==='d'?5:4.5);c.style.opacity=0;g.appendChild(c);return c});
+  return {el,k,ups,pos,popEls,org,pk};
+});
 const mq=matchMedia('(prefers-reduced-motion: reduce)');
-let state='miss',playing=!mq.matches,ms=0,last=null,raf=0;
-const pt=(c,lane,v)=>c.ax==='x'?[v,lane]:[lane,v];
-const T={a:1900,h:700,b:1900,r:900};
-const TOT=T.a+T.h+T.b+T.r;
+let state='mix',playing=!mq.matches,ms=0,last=null,raf=0;
 const ease=x=>x<.5?2*x*x:1-((-2*x+2)**2)/2;
-const setRoute=()=>{
-  const s=ST[state];
-  svgs.forEach(({el,k})=>{
-    const c=CFG[k],stop=c.p[s.stop],u=c.p.user;
-    const a=pt(c,c.lane[0],u),b=pt(c,c.lane[0],stop),r1=pt(c,c.lane[1],stop),r2=pt(c,c.lane[1],u);
-    el.querySelector('.req').setAttribute('d',`M${a} L${b}`);
-    const res=el.querySelector('.res');
-    res.setAttribute('d',`M${r1} L${r2}`);
-    res.setAttribute('stroke',s.red?'#ef6a4f':'#4fc38a');
-    res.setAttribute('marker-end',`url(#${k}-a${s.red?'r':'g'})`);
-    const si=ORDER.indexOf(s.stop);
-    el.querySelectorAll('.stn').forEach(g=>g.classList.toggle('off',ORDER.indexOf(g.dataset.s)>si));
-    el.querySelectorAll('.badge').forEach(g=>{const t=s.b[g.dataset.b];g.style.display=t?'':'none';if(t){g.querySelector('text').textContent=t;g.classList.toggle('red',s.red)}});
-  });
-  document.querySelectorAll('.ctrl [data-state]').forEach(btn=>btn.setAttribute('aria-pressed',String(btn.dataset.state===state)));
-  document.querySelectorAll('.states li').forEach(li=>{const on=li.dataset.s===state;li.classList.toggle('on',on);if(on)li.setAttribute('aria-current','true');else li.removeAttribute('aria-current')});
-};
+const PLAN={hit:[['up',1.6,'req'],['hold',.25],['upb',1.6,'ok'],['rest',.7]],
+  miss:[['up',1.6,'req'],['po',1.1,'fetch'],['hold',.25,'org'],['pob',1.1,'ok'],['upb',1.6,'ok'],['rest',.4]],
+  block:[['up',1.6,'req'],['hold',.6,'flash'],['upb',1.2,'bad'],['rest',.8]]};
+const total=o=>PLAN[o].reduce((s,x)=>s+x[1],0);
+const outcome=(s,i)=>state==='mix'?MIX[s.k][i]:state;
 const frame=t=>{
-  const s=ST[state];
-  svgs.forEach(({el,k})=>{
-    const c=CFG[k],u=c.p.user,stop=c.p[s.stop],tok=el.querySelector('.tok');
-    let v=null,lane=c.lane[0],col='#efebe5',reveal=Infinity;
-    if(t<T.a){v=u+(stop-u)*ease(t/T.a);reveal=v}
-    else if(t<T.a+T.h){v=stop}
-    else if(t<T.a+T.h+T.b){v=stop+(u-stop)*ease((t-T.a-T.h)/T.b);lane=c.lane[1];col=s.red?'#ef6a4f':'#4fc38a'}
-    if(v===null){tok.style.opacity=0}
-    else{const [x,y]=pt(c,lane,v);tok.setAttribute('cx',x);tok.setAttribute('cy',y);tok.style.fill=col;tok.style.opacity=1}
-    el.querySelectorAll('.badge').forEach(g=>g.classList.toggle('show',c.p[g.dataset.b]<=reveal+1));
+  svgs.forEach(s=>{
+    const flash=new Set();let busy=false;
+    s.ups.forEach((u,i)=>{
+      const oc=outcome(s,i),plan=PLAN[oc],T=total(oc);
+      let x=((t/1000-i*.45)%T+T)%T,pt=null,col=COL.req;
+      for(const [ph,d,c] of plan){
+        if(x<d){const f=ease(x/d),po=s.pos[u.pop];
+          if(ph==='up')pt=u.p.getPointAtLength(u.L*f);
+          else if(ph==='upb')pt=u.p.getPointAtLength(u.L*(1-f));
+          else if(ph==='po')pt=po.p.getPointAtLength(po.L*f);
+          else if(ph==='pob')pt=po.p.getPointAtLength(po.L*(1-f));
+          else if(ph==='hold'){pt=c==='org'?po.p.getPointAtLength(po.L):u.p.getPointAtLength(u.L);if(c==='flash')flash.add(u.pop);if(c==='org')busy=true}
+          col=c&&COL[c]?COL[c]:(ph==='hold'?(c==='org'?COL.fetch:COL.req):col);break}
+        x-=d}
+      const el=s.pk[i];
+      if(pt){el.setAttribute('cx',pt.x);el.setAttribute('cy',pt.y);el.setAttribute('fill',col);el.style.opacity=1}else el.style.opacity=0;
+    });
+    s.popEls.forEach((p,j)=>p.classList.toggle('flash',flash.has(j)));
+    s.org.classList.toggle('busy',busy);
   });
 };
-const still=()=>{svgs.forEach(({el})=>{el.querySelector('.tok').style.opacity=0;el.querySelectorAll('.badge').forEach(g=>g.classList.add('show'))})};
-const tick=ts=>{if(last!==null)ms+=ts-last;last=ts;frame(ms%TOT);if(playing)raf=requestAnimationFrame(tick)};
+const still=()=>{svgs.forEach(s=>{s.pk.forEach(c=>c.style.opacity=0);s.popEls.forEach(p=>p.classList.remove('flash'));s.org.classList.remove('busy')})};
+const tick=ts=>{if(last!==null)ms+=ts-last;last=ts;frame(ms);if(playing)raf=requestAnimationFrame(tick)};
 const pp=document.getElementById('pp');
-const setPlay=p=>{playing=p;pp.textContent=p?'Pause':'Play';pp.setAttribute('aria-label',p?'Pause animation':'Play animation');cancelAnimationFrame(raf);last=null;if(p)raf=requestAnimationFrame(tick);else still()};
-document.querySelectorAll('.ctrl [data-state]').forEach(btn=>btn.addEventListener('click',()=>{state=btn.dataset.state;ms=0;setRoute();if(!playing)still()}));
+const setPlay=p=>{playing=p;pp.textContent=p?'Pause':'Play';pp.setAttribute('aria-label',p?'Pause animation':'Play animation');cancelAnimationFrame(raf);last=null;if(p)raf=requestAnimationFrame(tick);else if(mq.matches)still()};
+const setState=v=>{state=v;ms=0;
+  document.querySelectorAll('.ctrl [data-state]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.state===v)));
+  const ol=document.querySelector('.states');ol.classList.toggle('focus',v!=='mix');
+  ol.querySelectorAll('li').forEach(li=>{const on=li.dataset.s===v;li.classList.toggle('on',on);on?li.setAttribute('aria-current','true'):li.removeAttribute('aria-current')});
+  if(!playing&&!mq.matches)frame(1700)};
+document.querySelectorAll('.ctrl [data-state]').forEach(b=>b.addEventListener('click',()=>setState(b.dataset.state)));
 pp.addEventListener('click',()=>setPlay(!playing));
 mq.addEventListener?.('change',e=>{if(e.matches)setPlay(false)});
-setRoute();setPlay(playing);
+setState('mix');setPlay(playing);
 }
 </script>
 </body>
