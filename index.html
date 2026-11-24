@@ -98,9 +98,16 @@ h1 .title{display:block;font-size:clamp(20px,2.1vw,26px);letter-spacing:-.01em;f
 .net .org .led{fill:var(--bad)}
 .net .glow{opacity:.6;transition:opacity .3s}
 .net .org.busy .glow{opacity:1}
+.net .up.hl,.net .po.hl{stroke:#8a837a;stroke-width:2.6}
+.net .pks circle.bg{opacity:.45}
+.net .tagb rect{fill:var(--pInk)}
+.net .tagb text{fill:#0f0e0d;stroke:none;font-size:14px;font-weight:700}
+.net .tagb.red rect{fill:var(--bad)}
+.net .tagb.amb rect{fill:#e9a23b}
+.net .tagb{transition:opacity .25s}
 .lead{margin:12px 0 0;color:#c9c2b8;font-size:16px;max-width:34em}
 .states li b::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--c);margin-right:8px;vertical-align:1px}
-.states.focus li:not(.on){opacity:.5}
+.states li:not(.on){opacity:.6}
 .side .tag{font-size:14px;color:var(--pSoft);margin:0 0 8px;display:flex;align-items:center;gap:8px}
 .side .tag::before{content:"";width:8px;height:8px;border-radius:50%;border:1.5px solid var(--pSoft)}
 .side h2{margin:0;font-size:clamp(26px,2.6vw,32px);line-height:1.1;letter-spacing:-.02em}
@@ -299,21 +306,19 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
   </figure>
   <div class="side">
     <p class="tag">Illustrative request flow</p>
-    <h2 id="flowh">Where my work lives</h2>
-    <p class="lead">Between your users and your servers. Every request meets TLS, WAF and cache rules at the edge before the origin ever sees it.</p>
-    <p id="flowdesc" hidden>Users send requests to edge PoPs in Dallas, Chicago, Ashburn, London and Tokyo. Cache hits are answered at the edge, misses are fetched from an origin that only accepts edge traffic, and blocked requests are answered at the WAF.</p>
-    <div class="ctrl" role="group" aria-label="Choose what the diagram shows">
-      <button type="button" data-state="mix" aria-pressed="true">Mixed traffic</button>
+    <h2 id="flowh">What happens to one request at the edge</h2>
+    <p id="flowdesc" hidden>Users send requests to edge PoPs in Dallas, Chicago, Ashburn, London and Tokyo. One highlighted request shows the chosen outcome: cache hits are answered at the edge, misses are fetched from an origin that only accepts edge traffic, and blocked requests are answered at the WAF with a 403.</p>
+    <div class="ctrl" role="group" aria-label="Choose a request outcome">
       <button type="button" data-state="hit" aria-pressed="false">Cache hit</button>
-      <button type="button" data-state="miss" aria-pressed="false">Cache miss</button>
-      <button type="button" data-state="block" aria-pressed="false">Blocked</button>
+      <button type="button" data-state="miss" aria-pressed="true">Cache miss</button>
+      <button type="button" data-state="block" aria-pressed="false">Blocked request</button>
       <button type="button" class="pp" id="pp">Pause</button>
     </div>
   </div>
     <ol class="states" aria-live="polite">
-      <li data-s="hit" style="--c:#4fc38a"><b>Cache hit</b>The edge already has a fresh copy and answers directly. The origin is never contacted.</li>
-      <li data-s="miss" style="--c:#e9a23b"><b>Cache miss</b>The edge fetches from an origin that only accepts edge traffic, caches the 200 by its rules, and returns it.</li>
-      <li data-s="block" style="--c:#ef6a4f"><b>Blocked request</b>A WAF rule matches. The edge answers with a 403 and nothing reaches cache or origin.</li>
+      <li data-s="hit" style="--c:#4fc38a"><b>Cache hit</b>TLS ends at the edge, the WAF lets the request through, and the cached copy is returned. The origin is never contacted.</li>
+      <li data-s="miss" class="on" style="--c:#e9a23b"><b>Cache miss</b>The edge forwards the request to the origin, stores the 200 response by cache rules, and returns it to the user through the edge.</li>
+      <li data-s="block" style="--c:#ef6a4f"><b>Blocked request</b>A WAF rule matches. The edge answers with a 403 and the request never reaches cache or origin.</li>
     </ol>
 </div></section>
 
@@ -453,28 +458,46 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&nl.classList.contai
 const NS='http://www.w3.org/2000/svg';
 const COL={req:'#efebe5',ok:'#4fc38a',fetch:'#e9a23b',bad:'#ef6a4f'};
 const MIX={d:['hit','miss','hit','block','hit','miss','hit'],m:['hit','miss','block','hit','miss']};
+const FOCUS={d:2,m:1};
 const svgs=[...document.querySelectorAll('.net')].map(el=>{
   const k=el.classList.contains('net-d')?'d':'m';
   const ups=[...el.querySelectorAll('.up')].map(p=>({p,L:p.getTotalLength(),pop:+p.dataset.p,u:+p.dataset.u}));
   const pos=[...el.querySelectorAll('.po')].map(p=>({p,L:p.getTotalLength()}));
   const popEls=[...el.querySelectorAll('.pop')];const org=el.querySelector('.org');const g=el.querySelector('.pks');
-  const pk=ups.map(()=>{const c=document.createElementNS(NS,'circle');c.setAttribute('r',k==='d'?5:4.5);c.style.opacity=0;g.appendChild(c);return c});
-  return {el,k,ups,pos,popEls,org,pk};
+  const f=FOCUS[k];
+  const pk=ups.map((u,i)=>{const c=document.createElementNS(NS,'circle');c.setAttribute('r',i===f?(k==='d'?7:6):(k==='d'?4:3.5));if(i!==f)c.classList.add('bg');c.style.opacity=0;g.appendChild(c);return c});
+  g.appendChild(pk[f]);
+  const mk=(cls)=>{const t=document.createElementNS(NS,'g');t.setAttribute('class','tagb '+cls);t.style.opacity=0;
+    const r=document.createElementNS(NS,'rect');r.setAttribute('rx',11);r.setAttribute('height',22);
+    const tx=document.createElementNS(NS,'text');tx.setAttribute('text-anchor','middle');t.append(r,tx);g.appendChild(t);return t};
+  const place=(t,x,y,label)=>{const w=label.length*10+18;const r=t.firstChild,tx=t.lastChild;r.setAttribute('x',x-w/2);r.setAttribute('y',y-11);r.setAttribute('width',w);tx.setAttribute('x',x);tx.setAttribute('y',y+5);tx.textContent=label};
+  const fp=ups[f].pop,box=popEls[fp].querySelector('.box');
+  const bx=+box.getAttribute('x'),by=+box.getAttribute('y'),bw=+box.getAttribute('width');
+  const ob=org.querySelector('.o');const ox=+ob.getAttribute('x')+(+ob.getAttribute('width'))/2,oy=+ob.getAttribute('y');
+  const popTag=mk(''),orgTag=mk('');
+  const popXY=k==='d'?[bx+bw/2,by+bw+18]:[bx+bw+34,by+bw/2];
+  return {el,k,ups,pos,popEls,org,pk,f,popTag,orgTag,place,popXY,orgXY:[ox,oy-18]};
 });
 const mq=matchMedia('(prefers-reduced-motion: reduce)');
-let state='mix',playing=!mq.matches,ms=0,last=null,raf=0;
+let state='miss',playing=!mq.matches,ms=0,last=null,raf=0;
 const ease=x=>x<.5?2*x*x:1-((-2*x+2)**2)/2;
-const PLAN={hit:[['up',1.6,'req'],['hold',.25],['upb',1.6,'ok'],['rest',.7]],
-  miss:[['up',1.6,'req'],['po',1.1,'fetch'],['hold',.25,'org'],['pob',1.1,'ok'],['upb',1.6,'ok'],['rest',.4]],
-  block:[['up',1.6,'req'],['hold',.6,'flash'],['upb',1.2,'bad'],['rest',.8]]};
+const PLAN={hit:[['up',1.6,'req'],['hold',.45,'pop'],['upb',1.6,'ok'],['rest',.7]],
+  miss:[['up',1.6,'req'],['hold',.35,'pop'],['po',1.1,'fetch'],['hold',.45,'org'],['pob',1.1,'ok'],['upb',1.6,'ok'],['rest',.4]],
+  block:[['up',1.6,'req'],['hold',.7,'flash'],['upb',1.2,'bad'],['rest',.8]]};
 const total=o=>PLAN[o].reduce((s,x)=>s+x[1],0);
-const outcome=(s,i)=>state==='mix'?MIX[s.k][i]:state;
-const frame=t=>{
+const outcome=(s,i)=>i===s.f?state:MIX[s.k][i];
+const TAGS={hit:{pop:['HIT','']},miss:{pop:['MISS','amb'],org:['200','']},block:{pop:['403','red']}};
+const setTags=()=>svgs.forEach(s=>{const T=TAGS[state];
+  s.popTag.setAttribute('class','tagb '+(T.pop[1]||''));s.place(s.popTag,...s.popXY,T.pop[0]);
+  if(T.org){s.orgTag.setAttribute('class','tagb '+T.org[1]);s.place(s.orgTag,...s.orgXY,T.org[0])}
+  s.el.querySelectorAll('.hl').forEach(e=>e.classList.remove('hl'));
+  s.ups[s.f].p.classList.add('hl');if(state==='miss')s.pos[s.ups[s.f].pop].p.classList.add('hl')});
+const frame=(t,showAll)=>{
   svgs.forEach(s=>{
-    const flash=new Set();let busy=false;
+    const flash=new Set();let busy=false;let popOn=!!showAll,orgOn=!!showAll&&state==='miss';
     s.ups.forEach((u,i)=>{
       const oc=outcome(s,i),plan=PLAN[oc],T=total(oc);
-      let x=((t/1000-i*.45)%T+T)%T,pt=null,col=COL.req;
+      let x=((t/1000-(i===s.f?0:(i+1)*.45))%T+T)%T,pt=null,col=COL.req,passed=0;
       for(const [ph,d,c] of plan){
         if(x<d){const f=ease(x/d),po=s.pos[u.pop];
           if(ph==='up')pt=u.p.getPointAtLength(u.L*f);
@@ -482,28 +505,31 @@ const frame=t=>{
           else if(ph==='po')pt=po.p.getPointAtLength(po.L*f);
           else if(ph==='pob')pt=po.p.getPointAtLength(po.L*(1-f));
           else if(ph==='hold'){pt=c==='org'?po.p.getPointAtLength(po.L):u.p.getPointAtLength(u.L);if(c==='flash')flash.add(u.pop);if(c==='org')busy=true}
-          col=c&&COL[c]?COL[c]:(ph==='hold'?(c==='org'?COL.fetch:COL.req):col);break}
-        x-=d}
+          col=c&&COL[c]?COL[c]:(ph==='hold'?(c==='org'?COL.fetch:c==='flash'?COL.bad:COL.req):col);
+          if(i===s.f){if(ph!=='up')popOn=true;if(passed>=3&&oc==='miss'&&ph!=='po')orgOn=true;if(ph==='rest')popOn=orgOn=false}
+          break}
+        x-=d;passed++}
       const el=s.pk[i];
-      if(pt){el.setAttribute('cx',pt.x);el.setAttribute('cy',pt.y);el.setAttribute('fill',col);el.style.opacity=1}else el.style.opacity=0;
+      if(pt){el.setAttribute('cx',pt.x);el.setAttribute('cy',pt.y);el.setAttribute('fill',col);el.style.opacity=i===s.f?1:''}else el.style.opacity=0;
     });
+    s.popTag.style.opacity=popOn?1:0;s.orgTag.style.opacity=(orgOn&&state==='miss')?1:0;
     s.popEls.forEach((p,j)=>p.classList.toggle('flash',flash.has(j)));
     s.org.classList.toggle('busy',busy);
   });
 };
-const still=()=>{svgs.forEach(s=>{s.pk.forEach(c=>c.style.opacity=0);s.popEls.forEach(p=>p.classList.remove('flash'));s.org.classList.remove('busy')})};
+const still=()=>{svgs.forEach(s=>{s.pk.forEach(c=>c.style.opacity=0);s.popEls.forEach(p=>p.classList.remove('flash'));s.org.classList.remove('busy');
+  s.popTag.style.opacity=1;s.orgTag.style.opacity=state==='miss'?1:0})};
 const tick=ts=>{if(last!==null)ms+=ts-last;last=ts;frame(ms);if(playing)raf=requestAnimationFrame(tick)};
 const pp=document.getElementById('pp');
 const setPlay=p=>{playing=p;pp.textContent=p?'Pause':'Play';pp.setAttribute('aria-label',p?'Pause animation':'Play animation');cancelAnimationFrame(raf);last=null;if(p)raf=requestAnimationFrame(tick);else if(mq.matches)still()};
-const setState=v=>{state=v;ms=0;
+const setState=v=>{state=v;ms=0;setTags();
   document.querySelectorAll('.ctrl [data-state]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.state===v)));
-  const ol=document.querySelector('.states');ol.classList.toggle('focus',v!=='mix');
-  ol.querySelectorAll('li').forEach(li=>{const on=li.dataset.s===v;li.classList.toggle('on',on);on?li.setAttribute('aria-current','true'):li.removeAttribute('aria-current')});
-  if(!playing&&!mq.matches)frame(1700)};
+  document.querySelectorAll('.states li').forEach(li=>{const on=li.dataset.s===v;li.classList.toggle('on',on);on?li.setAttribute('aria-current','true'):li.removeAttribute('aria-current')});
+  if(mq.matches&&!playing)still();else if(!playing)frame(1700)};
 document.querySelectorAll('.ctrl [data-state]').forEach(b=>b.addEventListener('click',()=>setState(b.dataset.state)));
 pp.addEventListener('click',()=>setPlay(!playing));
 mq.addEventListener?.('change',e=>{if(e.matches)setPlay(false)});
-setState('mix');setPlay(playing);
+setState('miss');setPlay(playing);
 }
 </script>
 </body>
